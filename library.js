@@ -13,6 +13,6 @@ function Book(title, author, pages, readStat){
 }
 
 
-function addBook(){
-
+function addBook(userBook){
+    bookLib.push(userBook)
 } 
