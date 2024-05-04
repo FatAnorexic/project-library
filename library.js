@@ -29,8 +29,10 @@ function displayBook(){
     for (x of bookLib){
         console.log(x)
         let row=table.insertRow();
-        let cell=row.insertCell(0)
-        cell.innerHTML=x.title
+        row.insertCell(0).innerHTML=x.title;
+        row.insertCell(1).innerHTML=x.author;
+        row.insertCell(2).innerHTML=x.pages
+        row.insertCell(3).innerHTML=x.readStat
         
     }
 }
