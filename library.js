@@ -4,11 +4,7 @@ const display=document.getElementById('display');
 //select the table for inserting content
 const table=document.getElementById('table');
 //Listens for 'click' and logs the book into the console
-display.addEventListener('click', ()=>{
-    addBook(testBook);
-    addBook(expanse);
-    displayBook();
-})
+
 
 //query selectors to open and close the dialog box
 const dialog=document.querySelector('dialog');   //Allows us to manipulate the modal status of the dialog box
@@ -22,6 +18,7 @@ addBookBtn.addEventListener('click', () =>{
 
 submitBtn.addEventListener('click', () =>{
     dialog.close();
+    //Add prevent default and submit user data to addBook function
 })
 
 //An empty array to store all book values
@@ -39,6 +36,7 @@ function Book(title, author, pages, readStat){
 function addBook(userBook){
     if(!bookLib.includes(userBook)){
         bookLib.push(userBook)
+        displayBook();
     };
 } 
 
