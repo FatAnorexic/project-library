@@ -16,10 +16,7 @@ addBookBtn.addEventListener('click', () =>{
     dialog.showModal();
 });
 
-submitBtn.addEventListener('click', () =>{
-    dialog.close();
-    //Add prevent default and submit user data to addBook function
-})
+submitBtn.addEventListener('click', submit);
 
 //An empty array to store all book values
 const bookLib=[];
@@ -32,6 +29,16 @@ function Book(title, author, pages, readStat){
     this.readStat=readStat;
 }
 
+function submit(event){
+    dialog.close();
+    //Add prevent default and submit user data to addBook function
+    event.preventDefault();
+    const title=document.getElementById('title');
+    const author=document.getElementById('author');
+    const pages=document.getElementById('pages');
+    const Obj= new Book(title.value, author.value, pages.value, 'not read');
+    addBook(Obj);
+}
 
 function addBook(userBook){
     if(!bookLib.includes(userBook)){
