@@ -37,7 +37,9 @@ function Book(title, author, pages, readStat){
 
 
 function addBook(userBook){
-    bookLib.push(userBook)
+    if(!bookLib.includes(userBook)){
+        bookLib.push(userBook)
+    };
 } 
 
 function displayBook(){
