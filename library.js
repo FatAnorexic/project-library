@@ -6,6 +6,7 @@ const table=document.getElementById('table');
 //Listens for 'click' and logs the book into the console
 display.addEventListener('click', ()=>{
     addBook(testBook);
+    addBook(expanse);
     displayBook();
 })
 //An empty array to store all book values
@@ -37,4 +38,4 @@ function displayBook(){
     }
 }
 const testBook= new Book('Hobbit', 'Tolkien', '256', 'Not read');
-
+const expanse= new Book('Leviathan Wakes', 'James SA Corey', '592', 'read');
