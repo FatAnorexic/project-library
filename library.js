@@ -33,10 +33,12 @@ function submit(event){
     dialog.close();
     //Add prevent default and submit user data to addBook function
     event.preventDefault();
-    const title=document.getElementById('title');
-    const author=document.getElementById('author');
-    const pages=document.getElementById('pages');
-    const Obj= new Book(title.value, author.value, pages.value, 'not read');
+    const title=document.getElementById('title').value;
+    const author=document.getElementById('author').value;
+    const pages=document.getElementById('pages').value;
+    const read=document.getElementById('isRead').checked ? 'read': 'not read';
+    console.log(read);
+    const Obj= new Book(title, author, pages, read);
     addBook(Obj);
 }
 
