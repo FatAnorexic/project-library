@@ -32,8 +32,8 @@ function displayBook(){
         let row=table.insertRow();
         row.insertCell(0).innerHTML=x.title;
         row.insertCell(1).innerHTML=x.author;
-        row.insertCell(2).innerHTML=x.pages
-        row.insertCell(3).innerHTML=x.readStat
+        row.insertCell(2).innerHTML=x.pages;
+        row.insertCell(3).innerHTML=x.readStat;
         
     }
 }
