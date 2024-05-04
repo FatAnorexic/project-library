@@ -16,3 +16,13 @@ function Book(title, author, pages, readStat){
 function addBook(userBook){
     bookLib.push(userBook)
 } 
+
+function displayBook(){
+    for (x of bookLib){
+        console.log(x)
+    }
+}
+const testBook= new Book('Hobbit', 'Tolkien', '256', 'Not read');
+
+addBook(testBook);
+displayBook();
