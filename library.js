@@ -9,8 +9,22 @@ display.addEventListener('click', ()=>{
     addBook(expanse);
     displayBook();
 })
-//An empty array to store all book values
 
+//query selectors to open and close the dialog box
+const dialog=document.querySelector('dialog');   //Allows us to manipulate the modal status of the dialog box
+const addBookBtn=document.getElementById('addBookBtn'); //used in our event listenter to open the dialog box
+const submitBtn=document.querySelector('.btn-submit'); //Submits the information and closes the dialog box
+
+//Event listeners to open and close the dialog
+addBookBtn.addEventListener('click', () =>{
+    dialog.showModal();
+});
+
+submitBtn.addEventListener('click', () =>{
+    dialog.close();
+})
+
+//An empty array to store all book values
 const bookLib=[];
 
 //Constructor for book
