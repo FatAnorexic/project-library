@@ -58,5 +58,4 @@ function displayBook(){
         
     }
 }
-const testBook= new Book('Hobbit', 'Tolkien', '256', 'Not read');
-const expanse= new Book('Leviathan Wakes', 'James SA Corey', '592', 'read');
+
