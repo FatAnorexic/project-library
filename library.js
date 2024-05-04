@@ -1,6 +1,8 @@
 
 //selects the displayBook id
 const display=document.getElementById('display');
+//select the table for inserting content
+const table=document.getElementById('table');
 //Listens for 'click' and logs the book into the console
 display.addEventListener('click', ()=>{
     addBook(testBook);
@@ -26,6 +28,10 @@ function addBook(userBook){
 function displayBook(){
     for (x of bookLib){
         console.log(x)
+        let row=table.insertRow();
+        let cell=row.insertCell(0)
+        cell.innerHTML=x.title
+        
     }
 }
 const testBook= new Book('Hobbit', 'Tolkien', '256', 'Not read');
