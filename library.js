@@ -57,6 +57,10 @@ function displayBook(){
         row.insertCell(1).innerHTML=x.author;
         row.insertCell(2).innerHTML=x.pages;
         row.insertCell(3).innerHTML=x.readStat;
+
+        //Adds a remove button to the last cell in the row when called
+        removeButton(row);
+        
         
     }
 }
@@ -66,4 +70,20 @@ function clearBoard(){
     for(let x=table.rows.length; x>1;x--){
         table.deleteRow(x-1);
     }
+}
+
+
+function addRemoveButton(){
+    let remove=document.createElement('button');
+    remove.className='removeStyle';
+    remove.id='removeBtn';
+}
+
+function removeButton(row){
+    let remove=document.createElement('button');
+    let name=document.createTextNode('Remove');
+    remove.className='removeStyle';
+    remove.id='removeBtn';
+    remove.appendChild(name)
+    row.appendChild(remove);
 }
