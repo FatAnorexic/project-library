@@ -37,7 +37,6 @@ function submit(event){
     const author=document.getElementById('author').value;
     const pages=document.getElementById('pages').value;
     const read=document.getElementById('isRead').checked ? 'read': 'not read';
-    console.log(read);
     const Obj= new Book(title, author, pages, read);
     addBook(Obj);
 }
@@ -50,6 +49,7 @@ function addBook(userBook){
 } 
 
 function displayBook(){
+    clearBoard();
     for (x of bookLib){
         console.log(x)
         let row=table.insertRow();
@@ -61,3 +61,9 @@ function displayBook(){
     }
 }
 
+//Function to clear the board/cards before reiterating through the array
+function clearBoard(){
+    for(let x=table.rows.length; x>1;x--){
+        table.deleteRow(x-1);
+    }
+}
