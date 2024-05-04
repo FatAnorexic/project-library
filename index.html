@@ -13,6 +13,22 @@
         <button class="btnAdd" id="addBookBtn">Add Book +</button>
     </header>
     <main class="content" id="mainContent">
+        
+        <dialog id="active">
+            <form action="" class="add-book-form" id="bookForm">
+                <h2>Add Book To Library</h2>
+                <label for="title">Title</label>
+                <input type="text" placeholder="Hobbit" required="required" maxlength="100" id="title">
+                <label for="authon">Author</label>
+                <input type="text" placeholder="JRR Tolkien"  required="required" maxlength="100" id="author">
+                <label for="pages">Number of Pages</label>
+                <input type="number" id="pages" required="required" maxlength="22000">
+                <div class="read">
+                    <label for="isRead">Has this book been read?</label><input type="checkbox" id="isRead">
+                </div>
+            </form>
+        </dialog>
+        
         <table class="table" id="table">
             <thead>
                 <tr class="rows" id="rows">
