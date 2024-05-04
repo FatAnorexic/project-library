@@ -1,5 +1,11 @@
 
-
+//selects the displayBook id
+const display=document.getElementById('display');
+//Listens for 'click' and logs the book into the console
+display.addEventListener('click', ()=>{
+    addBook(testBook);
+    displayBook();
+})
 //An empty array to store all book values
 
 const bookLib=[];
@@ -24,5 +30,3 @@ function displayBook(){
 }
 const testBook= new Book('Hobbit', 'Tolkien', '256', 'Not read');
 
-addBook(testBook);
-displayBook();
