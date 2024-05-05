@@ -3,8 +3,7 @@
 const display=document.getElementById('display');
 //select the table for inserting content
 const table=document.getElementById('table');
-//Selector for remove button. 
-const removeBtn=document.getElementById('removeBtn');
+
 
 
 //query selectors to open and close the dialog box
@@ -12,18 +11,13 @@ const dialog=document.querySelector('dialog');   //Allows us to manipulate the m
 const addBookBtn=document.getElementById('addBookBtn'); //used in our event listenter to open the dialog box
 const submitBtn=document.querySelector('.btn-submit'); //Submits the information and closes the dialog box
 
-//Event listeners to open and close the dialog
+//Event listener to open the dialog. When clicked showModal() will activate the dialog box and open it on screen
 addBookBtn.addEventListener('click', () =>{
     dialog.showModal();
 });
 
 //When clicked, runs the submit function|closing the dialog box, and creating a new object with values given
 submitBtn.addEventListener('click', submit);
-
-//Remove function, when clicked will find the row in the table or card associated with it, and delete the row/card
-removeBtn.addEventListener('click', ()=>{
-    
-});
 
 //An empty array to store all book values
 const bookLib=[];
