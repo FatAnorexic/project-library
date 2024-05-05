@@ -4,8 +4,6 @@ const display=document.getElementById('display');
 //select the table for inserting content
 const table=document.getElementById('table');
 
-
-
 //query selectors to open and close the dialog box
 const dialog=document.querySelector('dialog');   //Allows us to manipulate the modal status of the dialog box
 const addBookBtn=document.getElementById('addBookBtn'); //used in our event listenter to open the dialog box
@@ -52,18 +50,24 @@ function addBook(userBook){
 function displayBook(){
     clearBoard();
     for (x of bookLib){
-        console.log(x)
         let row=table.insertRow();
         row.insertCell(0).innerHTML=x.title;
         row.insertCell(1).innerHTML=x.author;
         row.insertCell(2).innerHTML=x.pages;
         row.insertCell(3).innerHTML=x.readStat;
-
         //Adds a remove button to the last cell in the row when called
         removeButton(row);
-        
-        
     }
+    //Selects dynamically added buttons. If clicked, it will take the index of of the row
+    //and remove that element from the array and display the new list.
+    const removeBtn=document.querySelectorAll('#removeBtn');
+    removeBtn.forEach(remove => remove.addEventListener('click', ()=>{
+        let idx=remove.closest('tr').rowIndex;
+        if(idx>-1){
+            bookLib.splice(idx-1, 1);
+        }
+        displayBook();
+    }));
 }
 
 //Function to clear the board/cards before reiterating through the array
@@ -71,13 +75,6 @@ function clearBoard(){
     for(let x=table.rows.length; x>1;x--){
         table.deleteRow(x-1);
     }
-}
-
-
-function addRemoveButton(){
-    let remove=document.createElement('button');
-    remove.className='removeStyle';
-    remove.id='removeBtn';
 }
 
 function removeButton(row){
