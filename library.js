@@ -51,10 +51,15 @@ function displayBook(){
     clearBoard();
     for (x of bookLib){
         let row=table.insertRow();
-        row.insertCell(0).innerHTML=x.title;
-        row.insertCell(1).innerHTML=x.author;
-        row.insertCell(2).innerHTML=x.pages;
-        row.insertCell(3).innerHTML=x.readStat;
+        let cell1=row.insertCell(0)
+        let cell2=row.insertCell(1)
+        let cell3=row.insertCell(2)
+        let cell4=row.insertCell(3)
+        cell1.innerHTML=x.title;
+        cell2.innerHTML=x.author;
+        cell3.innerHTML=x.pages;
+        cell4.innerHTML=x.readStat;
+        readButton(cell4)
         //Adds a remove button to the last cell in the row when called
         removeButton(row);
     }
@@ -84,4 +89,12 @@ function removeButton(row){
     remove.id='removeBtn';
     remove.appendChild(name)
     row.appendChild(remove);
+}
+
+function readButton(idx){
+    let read=document.createElement('input');
+    read.type='checkbox';
+    read.className='readStatus';
+    read.id='readCheck';
+    idx.appendChild(read)
 }
