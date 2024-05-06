@@ -1,6 +1,4 @@
 
-//selects the displayBook id
-const display=document.getElementById('display');
 //select the table for inserting content
 const table=document.getElementById('table');
 
