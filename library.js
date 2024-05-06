@@ -74,6 +74,16 @@ function displayBook(){
         }
         displayBook();
     }));
+
+    //Selects all the dynamically read buttons, and passes the constant to an event handler
+    const readBtn=document.querySelectorAll('#readCheck')
+    readBtn.forEach(read=>read.addEventListener('click', ()=>{
+        let idx=read.closest('tr').rowIndex;
+        if (idx>-1){
+            bookLib[idx-1].readStat=='read' ? bookLib[idx-1].readStat='not read':bookLib[idx-1].readStat='read';
+        }
+        displayBook();
+    }))
 }
 
 //Function to clear the board/cards before reiterating through the array
