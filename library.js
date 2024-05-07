@@ -126,3 +126,69 @@ function readButton(idx,x){
     x.readStat=='read' ? read.checked=true:read.checked=false;
     idx.appendChild(read)
 }
+
+/*-----------------------------------------------------------------------------------------------------------------------------
+//This function is used to sort each method within the table, by clicking the headers. Should I choose to continue to use the  *
+//table in design, this will allow the user to sort books by title, author, pages, or if they've been read or not. The form    *
+//and function of this may change if other design approaches are chosen (IE using display cards), but either way it may be     *
+//an important aspect for feature complete Project: Library.                                                                   *
+//Source for this code is frome W3schools.com: https://www.w3schools.com/howto/howto_js_sort_table.asp                         
+//-----------------------------------------------------------------------------------------------------------------------------*/
+
+function sortTable(n){
+    let rows, switching, i, x, y, shouldSwitch, dir, switchCount=0;
+    let table=document.getElementById('table');
+    switching=true;
+    //sets sorting direction
+    dir='asc';
+    //Loop continues while no switching is done
+    while(switching){
+        //set switching value to false
+        switching=false;
+        rows=table.rows;
+        if(n===0 || n===1){
+            //Loop through every row, except the first, which contains the headers
+            for(i=1;i<(rows.length-1);i++){
+                //There should be no switching
+                shouldSwitch=false;
+
+                //compare the elements you want to compare from one row to the next
+                x=rows[i].getElementsByTagName('TD')[n];
+                y=rows[i+1].getElementsByTagName('TD')[n];
+
+                //Check if the two rows should switch places
+                if(dir=='asc'){
+                    if(x.innerHTML.toLowerCase()>y.innerHTML.toLowerCase()){
+                        shouldSwitch=true;
+                        break;
+                    }
+                }else if(dir=='desc'){
+                    if(x.innerHTML.toLowerCase()<y.innerHTML.toLowerCase()){
+                        shouldSwitch=true;
+                        break;
+                    }
+                }
+            }
+            //if the shouldSwitch flag is true, make the switch and mark switching as true
+            if(shouldSwitch){
+                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+                switching=true;
+                switchCount++;
+            }else{
+                //if no switching has been done AND the direction is 'asc'
+                //set the direction to 'desc' and run the loop again
+                if(switchCount==0 && dir=='asc'){
+                    dir='desc';
+                    switching=true;
+                }
+            }
+        }
+
+        if(n===3){
+            for(i=0;i<(rows.length-1);i++){
+                let x=rows[i].getElementsByTagName('TD')[n];
+                console.log(x)
+            }
+        }
+    }
+}
