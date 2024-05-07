@@ -185,9 +185,35 @@ function sortTable(n){
         }
 
         if(n===3){
-            for(i=0;i<(rows.length-1);i++){
-                let x=rows[i].getElementsByTagName('TD')[n];
-                console.log(x)
+            for(i=1;i<(rows.length-1);i++){
+                shouldSwitch=false;
+                
+                let x=rows[i].getElementsByTagName('TD')[n].childNodes[1];
+                let y=rows[i+1].getElementsByTagName('TD')[n].childNodes[1];
+                
+                console.log(y.checked);
+
+                if(dir=='asc'){
+                    if(x.checked==true && y.checked==false){
+                        shouldSwitch=true;
+                        break;
+                    }
+                }else if(dir=='decs'){
+                    if(x.checked==false && y.checked==true){
+                        shouldSwitch=true;
+                        break;
+                    }
+                }
+            }
+            if(shouldSwitch){
+                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+                switching=true;
+                switchCount++;
+            }else{
+                if(switchCount==0 && dir=='asc'){
+                    dir=='decs';
+                    switchCount=true;
+                }
             }
         }
     }
