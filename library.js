@@ -184,12 +184,44 @@ function sortTable(n){
             }
         }
 
+        if(n===2){
+            for(i=1;i<rows.length-1;i++){
+                shouldSwitch=false;
+
+                x=rows[i].getElementsByTagName('TD')[n];
+                y=rows[i+1].getElementsByTagName('TD')[n];
+
+                if(dir=='asc'){
+                    if(Number(x.innerHTML)>Number(y.innerHTML)){
+                        shouldSwitch=true;
+                        break;
+                    }
+                }else if(dir=='decs'){
+                    if(Number(x.innerHTML)<Number(y.innerHTML)){
+                        shouldSwitch=true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch){
+                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
+                switching=true;
+                switchCount++;
+            }else{
+                if(switchCount==0 && dir=='asc'){
+                    dir='decs';
+                    switching=true;
+                }
+            }
+            
+        }
+
         if(n===3){
             for(i=1;i<(rows.length-1);i++){
                 shouldSwitch=false;
                 
-                let x=rows[i].getElementsByTagName('TD')[n].childNodes[1];
-                let y=rows[i+1].getElementsByTagName('TD')[n].childNodes[1];
+                x=rows[i].getElementsByTagName('TD')[n].childNodes[1];
+                y=rows[i+1].getElementsByTagName('TD')[n].childNodes[1];
 
                 if(dir=='asc'){
                     if(x.checked==true && y.checked==false){
