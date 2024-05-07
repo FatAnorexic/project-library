@@ -194,13 +194,11 @@ function sortTable(n){
                 if(dir=='asc'){
                     if(x.checked==true && y.checked==false){
                         shouldSwitch=true;
-                        console.log(`x: ${x.checked} y: ${y.checked}`)
                         break;
                     }
                 }else if(dir=='decs'){
                     if(x.checked==false && y.checked==true){
                         shouldSwitch=true;
-                        console.log(`x: ${x.checked} y: ${y.checked}`)
                         break;
                     }
                 }
