@@ -39,10 +39,17 @@ function submit(event){
 }
 
 function addBook(userBook){
-    if(!bookLib.includes(userBook)){
-        bookLib.push(userBook)
-        displayBook();
-    };
+    for(x of bookLib){
+        if(userBook.title===x.title && userBook.author===x.author && userBook.pages===x.pages){
+            alert(
+                'Book already in library. If this is a remake, modern adaptation, limited edition or differs'+ 
+                'from the book listed in any way, please specify.');
+            dialog.showModal();
+            return;
+        }
+    }
+    bookLib.push(userBook);
+    displayBook();
 } 
 
 function displayBook(){
