@@ -169,19 +169,10 @@ function sortTable(n){
                     }
                 }
             }
-            //if the shouldSwitch flag is true, make the switch and mark switching as true
-            if(shouldSwitch){
-                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
-                switching=true;
-                switchCount++;
-            }else{
-                //if no switching has been done AND the direction is 'asc'
-                //set the direction to 'desc' and run the loop again
-                if(switchCount==0 && dir=='asc'){
-                    dir='desc';
-                    switching=true;
-                }
-            }
+            const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
+            switching=values.switching;
+            dir=values.dir;
+            switchCount=values.switchCount;
         }
 
         if(n===2){
@@ -253,3 +244,14 @@ function sorting(rowsSwitch,shouldSwitch, switching, switchCount, dir='acs',i){
     }
     return{dir, switching, switchCount};
 }
+
+function dummyContent(){
+    const book1= new Book('Hobbit', 'JRR Tolkien', '256', 'not read');
+    const book2= new Book('Leviathan Wakes', 'James SA Corey', '512', 'read');
+    const book3= new Book(`To Kill a Mocking Bird`, 'Harper Lee', '581','read');
+    addBook(book1);
+    addBook(book2);
+    addBook(book3);
+}
+
+dummyContent();
