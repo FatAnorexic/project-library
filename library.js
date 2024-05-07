@@ -190,17 +190,17 @@ function sortTable(n){
                 
                 let x=rows[i].getElementsByTagName('TD')[n].childNodes[1];
                 let y=rows[i+1].getElementsByTagName('TD')[n].childNodes[1];
-                
-                console.log(y.checked);
 
                 if(dir=='asc'){
                     if(x.checked==true && y.checked==false){
                         shouldSwitch=true;
+                        console.log(`x: ${x.checked} y: ${y.checked}`)
                         break;
                     }
                 }else if(dir=='decs'){
                     if(x.checked==false && y.checked==true){
                         shouldSwitch=true;
+                        console.log(`x: ${x.checked} y: ${y.checked}`)
                         break;
                     }
                 }
@@ -211,8 +211,8 @@ function sortTable(n){
                 switchCount++;
             }else{
                 if(switchCount==0 && dir=='asc'){
-                    dir=='decs';
-                    switchCount=true;
+                    dir='decs';
+                    switching=true;
                 }
             }
         }
