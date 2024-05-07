@@ -162,7 +162,7 @@ function sortTable(n){
                         shouldSwitch=true;
                         break;
                     }
-                }else if(dir=='desc'){
+                }else if(dir=='decs'){
                     if(x.innerHTML.toLowerCase()<y.innerHTML.toLowerCase()){
                         shouldSwitch=true;
                         break;
