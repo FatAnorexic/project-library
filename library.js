@@ -36,6 +36,7 @@ function submit(event){
     const read=document.getElementById('isRead').checked ? 'read': 'not read';
     const Obj= new Book(title, author, pages, read);
     addBook(Obj);
+    clearForm();
 }
 
 function addBook(userBook){
@@ -50,7 +51,15 @@ function addBook(userBook){
     }
     bookLib.push(userBook);
     displayBook();
-} 
+}
+
+//Function to clear the form field for each of the values in the dialog box
+function clearForm(){
+    document.getElementById('title').value='';
+    document.getElementById('author').value='';
+    document.getElementById('pages').value='';
+    document.getElementById('isRead').checked=false;
+}
 
 function displayBook(){
     clearBoard();
