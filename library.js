@@ -203,17 +203,10 @@ function sortTable(n){
                     }
                 }
             }
-            if (shouldSwitch){
-                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
-                switching=true;
-                switchCount++;
-            }else{
-                if(switchCount==0 && dir=='asc'){
-                    dir='decs';
-                    switching=true;
-                }
-            }
-            
+            const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
+            switching=values.switching;
+            dir=values.dir;
+            switchCount=values.switchCount;
         }
 
         if(n===3){
@@ -235,16 +228,28 @@ function sortTable(n){
                     }
                 }
             }
-            if(shouldSwitch){
-                rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
-                switching=true;
-                switchCount++;
-            }else{
-                if(switchCount==0 && dir=='asc'){
-                    dir='decs';
-                    switching=true;
-                }
-            }
+            const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
+            switching=values.switching;
+            dir=values.dir;
+            switchCount=values.switchCount;
         }
     }
+}
+
+//Function to sort the rows
+function sorting(rowsSwitch,shouldSwitch, switching, switchCount, dir='acs',i){
+    // console.log(rowsSwitch[i].parentNode)
+    if(shouldSwitch){
+        rowsSwitch[i].parentNode.insertBefore(rowsSwitch[i+1], rowsSwitch[i]);
+        switching=true;
+        switchCount++;
+        return{dir, switching, switchCount}
+    }else{
+        if(switchCount==0 && dir=='asc'){
+            dir='decs';
+            switching=true;
+            return {dir, switching, switchCount}
+        }
+    }
+    return{dir, switching, switchCount};
 }
