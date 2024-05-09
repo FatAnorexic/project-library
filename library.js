@@ -169,10 +169,12 @@ function sortTable(n){
                     }
                 }
             }
+            
             const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
             switching=values.switching;
             dir=values.dir;
             switchCount=values.switchCount;
+            
         }
 
         if(n===2){
@@ -225,6 +227,7 @@ function sortTable(n){
             switchCount=values.switchCount;
         }
     }
+    reSortArray();
 }
 
 //Function to sort the rows
@@ -252,6 +255,21 @@ function dummyContent(){
     addBook(book1);
     addBook(book2);
     addBook(book3);
+}
+
+function reSortArray(){
+    let rowCheck=document.getElementById('table').rows;
+    let min_index, temp;
+    for(let i=1;i<(rowCheck.length);i++){
+        min_index=i;
+        for(let j=0;j<bookLib.length;j++){
+            if(bookLib[j].title==rowCheck[min_index].getElementsByTagName('TD')[0].innerHTML){
+                temp=bookLib[min_index-1];
+                bookLib[min_index-1]=bookLib[j];
+                bookLib[j]=temp
+            }
+        }
+    }
 }
 
 dummyContent();
