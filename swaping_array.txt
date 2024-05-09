@@ -1,0 +1,21 @@
+What I would do is this:
+
+every time I change the elements in the table, I run the sortArray algorithm
+
+in the sort array, I take the first title element in the table and the row index and search 
+for it in the array of objects. when I find it, I take the first object in the array and store it in a
+temp array. I then push the object that matches the table to the first index, and push the temp object to
+the object index I found the table index. I then repeat this for each row in the table, finding the
+matching object, placing the nth idex object in a temp, pushing the matching object to that place, and
+pushing that object to the place we found the matching object. 
+
+for(i=1;i<table.row.lenth;i++){
+    min_index=i
+    for(j=0;j<bookLib.length;j++){
+        if(bookLib[j].title==table[i].title){
+            temp=bookLib[min_index-1]
+            bookLib[min_index-1]=bookLib[j]
+            booklib[j]=temp
+        }
+    }
+}
