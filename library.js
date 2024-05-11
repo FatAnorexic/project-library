@@ -174,7 +174,7 @@ function sortTable(n){
             switching=values.switching;
             dir=values.dir;
             switchCount=values.switchCount;
-            
+            reSortArray();
         }
 
         if(n===2){
