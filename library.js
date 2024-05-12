@@ -38,7 +38,7 @@ function submit(event){
         alert('Please fill give the title of the book, author, and number of pages');
         return;
     }else if(Number(pages)<1){
-        alert('Pages must be greater than at least 1');
+        alert('Pages must be at least 1 or greater');
         return;
     }
 
