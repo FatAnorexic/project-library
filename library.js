@@ -27,13 +27,24 @@ function Book(title, author, pages, readStat){
 }
 
 function submit(event){
-    dialog.close();
-    //Add prevent default and submit user data to addBook function
-    event.preventDefault();
+    
     const title=document.getElementById('title').value;
     const author=document.getElementById('author').value;
     const pages=document.getElementById('pages').value;
     const read=document.getElementById('isRead').checked ? 'read': 'not read';
+    
+    // prevent the dialog box from closing if all fields are left blank
+    if (title=='' || author=='' || pages==''){
+        alert('Please fill give the title of the book, author, and number of pages');
+        return;
+    }else if(Number(pages)<1){
+        alert('Pages must be greater than at least 1');
+        return;
+    }
+
+    dialog.close();
+    //Add prevent default and submit user data to addBook function
+    event.preventDefault();
     const Obj= new Book(title, author, pages, read);
     addBook(Obj);
     clearForm();
