@@ -3,7 +3,7 @@
 /* Grid Template for whole page structure */
 body {
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-rows: 1fr min-content 1fr;
     /* justify-content: center; */
     gap: 1rem;
 }
