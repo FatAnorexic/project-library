@@ -8,6 +8,13 @@ body {
     gap: 1rem;
 }
 
+/* Content for heading of page */
+
+.header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
