@@ -31,8 +31,6 @@ th,td{
 .stickyCont{
     display: flex;
     justify-content: end;
-}
-.btnSticky{
     position: sticky;
     bottom:0%
 }
