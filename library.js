@@ -4,13 +4,13 @@ const table=document.getElementById('table');
 
 //query selectors to open and close the dialog box
 const dialog=document.querySelector('dialog');   //Allows us to manipulate the modal status of the dialog box
-const addBookBtn=document.getElementById('addBookBtn'); //used in our event listenter to open the dialog box
+const addBookButtons=document.querySelectorAll('#addBookBtn'); //used in our event listenter to open the dialog box
 const submitBtn=document.querySelector('.btn-submit'); //Submits the information and closes the dialog box
 
 //Event listener to open the dialog. When clicked showModal() will activate the dialog box and open it on screen
-addBookBtn.addEventListener('click', () =>{
+addBookButtons.forEach(addBookBtn => addBookBtn.addEventListener('click', () =>{
     dialog.showModal();
-});
+}));
 
 //When clicked, runs the submit function|closing the dialog box, and creating a new object with values given
 submitBtn.addEventListener('click', submit);
