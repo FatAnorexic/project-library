@@ -32,6 +32,9 @@ h1 {
     flex: 0.45 1 auto;
     font-family: var(--Header-font);
 }
+.bookHead{
+    width: 5%;
+}
 
 
 table{
