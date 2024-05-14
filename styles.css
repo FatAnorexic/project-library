@@ -6,6 +6,8 @@ body {
     grid-template-rows: 1fr min-content 1fr;
     /* justify-content: center; */
     gap: 1rem;
+    margin:0;
+    padding:0;
 }
 
 /* Content for heading of page */
