@@ -33,10 +33,10 @@ th,td{
     padding:10px
 }
 
-.stickyCont{
+.stickyCont {
     display: flex;
     justify-content: end;
     position: sticky;
-    bottom:0%;
-    padding:10px;
+    top: 10px;
+    padding: 10px;
 }
