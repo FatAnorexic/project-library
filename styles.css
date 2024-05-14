@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-    flex: 0.45 1 auto;
+    flex: 0.4 1 auto;
     font-family: var(--Header-font);
 }
 .bookHead{
