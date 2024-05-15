@@ -42,9 +42,9 @@ function submit(event){
         return;
     }
 
-    dialog.close();
     //Add prevent default and submit user data to addBook function
     event.preventDefault();
+    dialog.close();
     const Obj= new Book(title, author, pages, read);
     addBook(Obj);
     clearForm();

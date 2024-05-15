@@ -24,19 +24,20 @@
             <button class="btnSticky" id="addBookBtn">+</button>
         </div>
         <dialog>
-            <form action="" class="add-book-form" id="bookForm">
+            <form method="dialog" class="add-book-form" id="bookForm">
                 <h2>Add Book To Library</h2>
                 <label for="title">Title</label>
-                <input type="text" placeholder="Hobbit" required maxlength="100" id="title">
+                <input type="text" placeholder="Hobbit" required maxlength="100" id="title"/>
                 <label for="authon">Author</label>
-                <input type="text" placeholder="JRR Tolkien"  required maxlength="100" id="author">
+                <input type="text" placeholder="JRR Tolkien"  required maxlength="100" id="author"/>
                 <label for="pages">Number of Pages</label>
-                <input type="number" id="pages" required min="1">
+                <input type="number" id="pages" required min="1"/>
                 <div class="read">
                     <label for="isRead">Has this book been read?</label>
                     <input type="checkbox" id="isRead">
                 </div>
-                <input type="submit" class="btn-submit" id="btnSubmit" value="Submit">
+                <input type="submit" class="btn-submit" id="btnSubmit" value="Submit"/>
+                <input type="submit" class="cancel" id="cancelBtn" value="Cancel" formnovalidate/>
             </form>
         </dialog>
         
