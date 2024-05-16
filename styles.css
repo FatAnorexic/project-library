@@ -108,8 +108,14 @@ th,td{
     border: 1px solid black;
     padding:10px
 }
+.tableHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .menuUp{
-    width:3rem;
+    width:2.5rem;
+    margin: 0;
 }
 
 .stickyCont {
