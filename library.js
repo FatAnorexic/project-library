@@ -33,10 +33,14 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
 
     });
     swap(arrow);
+    console.log(isClicked)
 }));
 
 //An empty array to store all book values
 const bookLib=[];
+
+// Array for storing clicked headers
+const isClicked=[]
 
 //Constructor for book
 function Book(title, author, pages, readStat){
