@@ -18,12 +18,21 @@ submitBtn.addEventListener('click', submit);
 
 // for each of the tableHeaders clicked, swaps out the current arrow image with the opposite
 tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
+    const content=tableHead.innerText;
     const arrow=tableHead.children[0];
-    if(arrow.src.match('content/menu-up.svg')){
-        arrow.src='content/menu-down.svg';
-    }else if(arrow.src.match('content/menu-down.svg')){
-        arrow.src='content/menu-up.svg';
-    }
+    
+    //Resets the table prior to switching the direction of the single column
+    const arrows=document.querySelectorAll('#arrow');
+    arrows.forEach((e)=>{
+        if(e.parentNode.innerText==content){
+            return;
+        }
+        if(e.src.match('content/menu-down.svg')){
+            e.src='content/menu-up.svg';
+        }
+
+    });
+    swap(arrow);
 }));
 
 //An empty array to store all book values
@@ -37,6 +46,16 @@ function Book(title, author, pages, readStat){
     this.readStat=readStat;
 }
 
+// Function to swap directional arrows of table heads
+function swap(arrow){
+    if(arrow.src.match('content/menu-up.svg')){
+        arrow.src='content/menu-down.svg';
+    }else if(arrow.src.match('content/menu-down.svg')){
+        arrow.src='content/menu-up.svg';
+    }
+}
+
+//Takes form information and creates object from it, then pushes object to addBook function
 function submit(event){
     
     const title=document.getElementById('title').value;
