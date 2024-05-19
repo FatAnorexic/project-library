@@ -6,7 +6,7 @@ const table=document.getElementById('table');
 const dialog=document.querySelector('dialog');   //Allows us to manipulate the modal status of the dialog box
 const addBookButtons=document.querySelectorAll('#addBookBtn'); //used in our event listenter to open the dialog box
 const submitBtn=document.querySelector('.btn-submit'); //Submits the information and closes the dialog box
-const arrows=document.getElementById('arrow')
+const tableHeads=document.querySelectorAll('#tableHeader'); //Selects the tableHeaders to change direction of arrows
 
 //Event listener to open the dialog. When clicked showModal() will activate the dialog box and open it on screen
 addBookButtons.forEach(addBookBtn => addBookBtn.addEventListener('click', () =>{
@@ -15,6 +15,16 @@ addBookButtons.forEach(addBookBtn => addBookBtn.addEventListener('click', () =>{
 
 //When clicked, runs the submit function|closing the dialog box, and creating a new object with values given
 submitBtn.addEventListener('click', submit);
+
+// for each of the tableHeaders clicked, swaps out the current arrow image with the opposite
+tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
+    const arrow=tableHead.children[0];
+    if(arrow.src.match('content/menu-up.svg')){
+        arrow.src='content/menu-down.svg';
+    }else if(arrow.src.match('content/menu-down.svg')){
+        arrow.src='content/menu-up.svg';
+    }
+}));
 
 //An empty array to store all book values
 const bookLib=[];
