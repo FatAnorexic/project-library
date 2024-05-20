@@ -18,22 +18,33 @@ submitBtn.addEventListener('click', submit);
 
 // for each of the tableHeaders clicked, swaps out the current arrow image with the opposite
 tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
-    const content=tableHead.innerText;
+    let content=tableHead.innerText;
     const arrow=tableHead.children[0];
-    
-    //Resets the table prior to switching the direction of the single column
+
     const arrows=document.querySelectorAll('#arrow');
     arrows.forEach((e)=>{
-        if(e.parentNode.innerText==content){
-            return;
-        }
-        if(e.src.match('content/menu-down.svg')){
+        if(e.src.match('content/menu-down.svg')&&e.parentNode.innerText!=content){
             e.src='content/menu-up.svg';
         }
-
     });
-    swap(arrow);
-    console.log(isClicked)
+
+    console.log(content)
+    switch(content){
+        case 'Title':
+            sortTable(0)
+            swap(arrow)
+            break;
+        case 'Author':
+            sortTable(1)
+            break;
+        case 'pages':
+            sortTable(2)
+            swap(arrow)
+            break;
+        case 'read':
+            sortTable(3)
+            break;
+    }
 }));
 
 //An empty array to store all book values
