@@ -21,14 +21,16 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
     let content=tableHead.innerText;
     const arrow=tableHead.children[0];
 
+    //Checks each instance of the arrow, and provided we are not on the same cell as the one clicked
+    //will reset the table and make all arrows point up before moving onto the actual sorting by cell
     const arrows=document.querySelectorAll('#arrow');
     arrows.forEach((e)=>{
         if(e.src.match('content/menu-down.svg')&&e.parentNode.innerText!=content){
+            sortTable(0)
             e.src='content/menu-up.svg';
         }
     });
 
-    console.log(content)
     switch(content){
         case 'Title':
             sortTable(0)
@@ -36,6 +38,7 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
             break;
         case 'Author':
             sortTable(1)
+            swap(arrow)
             break;
         case 'pages':
             sortTable(2)
@@ -43,6 +46,7 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
             break;
         case 'read':
             sortTable(3)
+            swap(arrow)
             break;
     }
 }));
@@ -50,8 +54,6 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
 //An empty array to store all book values
 const bookLib=[];
 
-// Array for storing clicked headers
-const isClicked=[]
 
 //Constructor for book
 function Book(title, author, pages, readStat){
