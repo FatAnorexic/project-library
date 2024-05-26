@@ -152,11 +152,10 @@ function displayBook(){
     const readBtn=document.querySelectorAll('#readCheck')
     readBtn.forEach(read=>read.addEventListener('click', ()=>{
         let idx=read.closest('tr').rowIndex;
-        let text=read.closest('td').innerHTML;
         if (idx>-1){
             bookLib[idx-1].readStat=='read' ? bookLib[idx-1].readStat='not read':bookLib[idx-1].readStat='read';
         }
-        console.log(text)
+        
     }))
 }
 
@@ -182,7 +181,6 @@ function readButton(idx,x){
     read.className='readStatus';
     read.id='readCheck';
     x.readStat=='read' ? read.checked=true:read.checked=false;
-    idx.innerText=x.readStat
     idx.appendChild(read)
 }
 
