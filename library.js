@@ -263,8 +263,8 @@ function sortTable(n){
             for(i=1;i<(rows.length-1);i++){
                 shouldSwitch=false;
                 
-                x=rows[i].getElementsByTagName('TD')[n].childNodes[1];
-                y=rows[i+1].getElementsByTagName('TD')[n].childNodes[1];
+                x=rows[i].getElementsByTagName('TD')[n].childNodes[0];
+                y=rows[i+1].getElementsByTagName('TD')[n].childNodes[0];
 
                 if(dir=='asc'){
                     if(x.checked==true && y.checked==false){
