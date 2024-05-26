@@ -155,7 +155,6 @@ function displayBook(){
         if (idx>-1){
             bookLib[idx-1].readStat=='read' ? bookLib[idx-1].readStat='not read':bookLib[idx-1].readStat='read';
         }
-        
     }))
 }
 
