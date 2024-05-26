@@ -182,7 +182,7 @@ function readButton(idx,x){
     read.className='readStatus';
     read.id='readCheck';
     x.readStat=='read' ? read.checked=true:read.checked=false;
-    idx.innerHTML=x.readStat
+    idx.innerText=x.readStat
     idx.appendChild(read)
 }
 
