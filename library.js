@@ -132,7 +132,7 @@ function displayBook(){
         cell1.innerHTML=x.title;
         cell2.innerHTML=x.author;
         cell3.innerHTML=x.pages;
-        cell4.innerHTML=x.readStat;
+        // cell4.innerHTML=x.readStat;
         
         readButton(cell4, x)
         //Adds a remove button to the last cell in the row when called

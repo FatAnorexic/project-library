@@ -143,8 +143,8 @@ input[type="checkbox"]::before{
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 4px 2px -1px rgba(0,0,0,0.6);
 }
 input:checked[type="checkbox"]::before{
-    background-color: blue;
-    left: 17.5px;
+    background-color: rgb(255, 255, 255);
+    left: 25px;
 }
 
 .stickyCont {
