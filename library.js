@@ -1,6 +1,5 @@
 
 //select the table for inserting content
-const table=document.getElementById('table');
 const tbody=document.querySelector('tbody')
 
 //query selectors to open and close the dialog box
@@ -161,8 +160,8 @@ function displayBook(){
 
 //Function to clear the board/cards before reiterating through the array
 function clearBoard(){
-    for(let x=table.rows.length; x>1;x--){
-        table.deleteRow(x-1);
+    for(let x=tbody.rows.length; x>0;x--){
+        tbody.deleteRow(x-1);
     }
 }
 
