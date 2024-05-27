@@ -112,6 +112,10 @@ td{
     text-align: center;
     margin: auto;
 }
+.removeStyle{
+    display: block;
+    margin: auto;
+}
 
 .tableHeader{
     display: flex;
