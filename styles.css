@@ -40,6 +40,11 @@ h1 {
     width: 3rem;
 }
 
+main{
+    /* Temproary */
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+}
 /* Styles content in the main container */
 
 /* Dialog animating and key frames for dialog */
@@ -99,30 +104,34 @@ dialog::backdrop{
 /* dialog, form, and table styling */
 
 table {
-    border: 2px solid black;
     display: block;
     overflow: auto;
     height: 100vh;
     width: 100%;
     font-family: var(--conent-font);
 }
+.table{
+    margin-top: 0px;
+    overflow-x: auto;
+    border: 1px solid rgba(255,255,255,0.3);
+}
 .head {
     width: 25%;
     position: sticky;
     top: 0;
     vertical-align: bottom;
-    background: #efe3e3;
+    background-color: rgba(255,255,255, 0.3);
     z-index: 1;
 }
-
 th,td{
-    border: 1px solid black;
-    padding:10px
+    color:#FFF;
 }
 td{
     text-align: center;
     margin: auto;
     text-overflow: ellipsis;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    vertical-align: middle;
 }
 .removeStyle{
     display: block;
