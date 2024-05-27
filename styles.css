@@ -122,6 +122,7 @@ th,td{
 td{
     text-align: center;
     margin: auto;
+    text-overflow: ellipsis;
 }
 .removeStyle{
     display: block;
