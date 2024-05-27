@@ -306,15 +306,6 @@ function sorting(rowsSwitch,shouldSwitch, switching, switchCount, dir='acs',i){
     return{dir, switching, switchCount};
 }
 
-function dummyContent(){
-    const book1= new Book('Hobbit', 'JRR Tolkien', '256', 'not read');
-    const book2= new Book('Leviathan Wakes', 'James SA Corey', '512', 'read');
-    const book3= new Book(`To Kill a Mocking Bird`, 'Harper Lee', '581','read');
-    addBook(book1);
-    addBook(book2);
-    addBook(book3);
-}
-
 function reSortArray(){
     let rowCheck=document.getElementById('table').rows;
     let min_index, temp;
@@ -328,6 +319,15 @@ function reSortArray(){
             }
         }
     }
+}
+
+function dummyContent(){
+    const book1= new Book('Hobbit', 'JRR Tolkien', '256', 'not read');
+    const book2= new Book('Leviathan Wakes', 'James SA Corey', '512', 'read');
+    const book3= new Book(`To Kill a Mocking Bird`, 'Harper Lee', '581','read');
+    addBook(book1);
+    addBook(book2);
+    addBook(book3);
 }
 
 dummyContent();
