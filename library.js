@@ -321,6 +321,7 @@ function reSortArray(){
     }
 }
 
+// Dummy content for design of page--DELETE before final push!
 function dummyContent(){
     const book1= new Book('Hobbit', 'JRR Tolkien', '256', 'not read');
     const book2= new Book('Leviathan Wakes', 'James SA Corey', '512', 'read');
@@ -330,4 +331,29 @@ function dummyContent(){
     addBook(book3);
 }
 
-dummyContent();
+function massiveDummy(){
+    let bookTitles=[];
+    let bookAuthor=[];
+    let pages=[];
+    for(let x=0;x<100;x++){
+        bookTitles.push(`Book Title ${x}`);
+        bookAuthor.push(`Book Author ${x}`);
+        let rand=Math.floor(Math.random()*(5000-100+1))+100;
+        pages.push(rand);
+    }
+
+    let stat;
+    for(let y=0;y<100;y++){
+        if(y%2==0){
+            stat='read';
+        }else{
+            stat='not read';
+        }
+        const Obj=new Book(bookTitles[y], bookAuthor[y], pages[y], stat);
+        addBook(Obj);
+    }
+
+}
+
+// dummyContent();
+massiveDummy();
