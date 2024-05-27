@@ -98,10 +98,21 @@ dialog::backdrop{
 
 /* dialog, form, and table styling */
 
-table{
+table {
     border: 2px solid black;
+    display: block;
+    overflow: auto;
+    height: 100vh;
     width: 100%;
     font-family: var(--conent-font);
+}
+.head {
+    width: 25%;
+    position: sticky;
+    top: 0;
+    vertical-align: bottom;
+    background: #efe3e3;
+    z-index: 1;
 }
 
 th,td{
@@ -126,6 +137,7 @@ td{
     width:2.5rem;
     margin: 0;
 }
+
 
 /* animate the checkbox to look like a switch */
 
