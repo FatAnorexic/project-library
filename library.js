@@ -1,6 +1,7 @@
 
 //select the table for inserting content
 const table=document.getElementById('table');
+const tbody=document.querySelector('tbody')
 
 //query selectors to open and close the dialog box
 const dialog=document.querySelector('dialog');   //Allows us to manipulate the modal status of the dialog box
@@ -122,7 +123,7 @@ function clearForm(){
 function displayBook(){
     clearBoard();
     for (x of bookLib){
-        let row=table.insertRow();
+        let row=tbody.insertRow();
 
         let cell1=row.insertCell(0)
         let cell2=row.insertCell(1)
