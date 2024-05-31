@@ -153,7 +153,7 @@ function displayBook(){
     readBtn.forEach(read=>read.addEventListener('click', ()=>{
         let idx=read.closest('tr').rowIndex;
         if (idx>-1){
-            bookLib[idx-1].readStat=='read' ? bookLib[idx-1].readStat='not read':bookLib[idx-1].readStat='read';
+            bookLib[idx].readStat=='read' ? bookLib[idx].readStat='not read':bookLib[idx].readStat='read';
         }
     }))
 }
