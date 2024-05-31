@@ -143,7 +143,7 @@ function displayBook(){
     removeBtn.forEach(remove => remove.addEventListener('click', ()=>{
         let idx=remove.closest('tr').rowIndex;
         if(idx>-1){
-            bookLib.splice(idx-1, 1);
+            bookLib.splice(idx, 1);
         }
         displayBook();
     }));
@@ -355,5 +355,5 @@ function massiveDummy(){
 
 }
 
-// dummyContent();
-massiveDummy();
+dummyContent();
+// massiveDummy();
