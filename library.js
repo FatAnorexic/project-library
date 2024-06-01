@@ -31,31 +31,31 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
 
     //Checks each instance of the arrow, and provided we are not on the same cell as the one clicked
     //will reset the table and make all arrows point up before moving onto the actual sorting by cell
-    // const arrows=document.querySelectorAll('#arrow');
-    /*arrows.forEach((e)=>{
+    const arrows=document.querySelectorAll('#arrow');
+    arrows.forEach((e)=>{
         if(e.src.match('content/menu-down.svg')&&e.parentNode.innerText!=content){
-            resortTitle('asc');
+            resort('asc', 'title');
             e.src='content/menu-up.svg';
         }
-    });*/
+    });
 
     
     
     switch(content){
         case 'Title':
-            resortTitle(direction);
+            resort(direction, 'title');
             swap(arrow);
             break;
         case 'Author':
-            resortAuthor(direction);
+            resort(direction, 'author');
             swap(arrow);
             break;
         case 'pages':
-            resortPages(direction);
+            resort(direction, 'pages');
             swap(arrow);
             break;
         case 'read':
-            resortRead(direction);
+            resort(direction, 'read');
             swap(arrow)
             break;
     }
@@ -195,57 +195,58 @@ function readButton(idx,x){
 
 
 
+function resort(direction, flag){
+    let min_index, temp, tempItem;
+    
+    //This array allows us to assign specific items from the object. This reduces the need for
+    //redundant functions. 
 
-function resortTitle(direction){
-     let min_index, temp;
-     if(direction=='decs'){
-        for(let x=0;x<bookLib.length-1;x++){
-            min_index=x;
-            for(let y=x+1;y<bookLib.length;y++){
-                if(bookLib[y].title.toLowerCase()>bookLib[min_index].title.toLowerCase()){
-                    min_index=y;
-                }
-            }
-                temp=bookLib[min_index];
-                bookLib[min_index]=bookLib[x];
-                bookLib[x]=temp;
-         }
-     }else if(direction=='asc'){
-        for(let x=0;x<bookLib.length-1;x++){
-            min_index=x;
-            for(let y=x+1;y<bookLib.length;y++){
-                if(bookLib[y].title.toLowerCase()<bookLib[min_index].title.toLowerCase()){
-                    min_index=y;
-                }
-            }
-                temp=bookLib[min_index];
-                bookLib[min_index]=bookLib[x];
-                bookLib[x]=temp;
-         }
-     }
-     displayBook();
-}
-
-function resortAuthor(direction){
-    let min_index, temp;
+    let item=[];
+    for(x of bookLib){
+        switch(flag){
+            case 'title':
+                item.push(x.title.toLowerCase());
+                break;
+            case 'author':
+                item.push(x.author.toLowerCase());
+                break;
+            case 'pages':
+                item.push(Number(x.pages));
+                break;
+            case 'read':
+                item.push(x.readStat);
+                break;
+        }
+    }
+    
     if(direction=='decs'){
-        for(let x=0;x<bookLib.length-1;x++){
-            min_index=x;
-            for(let y=x+1;y<bookLib.length;y++)
-                if(bookLib[y].author.toLowerCase()>bookLib[min_index].author.toLowerCase())
-                    min_index=y;
-            
+       for(let x=0;x<item.length-1;x++){
+           min_index=x;
+           for(let y=x+1;y<item.length;y++){
+               if(item[y]>item[min_index]){
+                   min_index=y;
+               }
+           }
+            tempItem=item[min_index];
+            item[min_index]=item[x];
+            item[x]=tempItem
+
             temp=bookLib[min_index];
             bookLib[min_index]=bookLib[x];
             bookLib[x]=temp;
         }
     }else if(direction=='asc'){
-        for(let x=0;x<bookLib.length-1;x++){
-            min_index=x;
-            for(let y=x+1;y<bookLib.length;y++)
-                if(bookLib[y].author.toLowerCase()<bookLib[min_index].author.toLowerCase())
-                    min_index=y;
-            
+       for(let x=0;x<item.length-1;x++){
+           min_index=x;
+           for(let y=x+1;y<item.length;y++){
+               if(item[y]<item[min_index]){
+                   min_index=y;
+               }
+           }
+            tempItem=item[min_index];
+            item[min_index]=item[x];
+            item[x]=tempItem
+
             temp=bookLib[min_index];
             bookLib[min_index]=bookLib[x];
             bookLib[x]=temp;
@@ -254,65 +255,6 @@ function resortAuthor(direction){
     displayBook();
 }
 
-function resortPages(direction){
-    let min_index, temp;
-     if(direction=='decs'){
-        for(let x=0;x<bookLib.length-1;x++){
-            min_index=x;
-            for(let y=x+1;y<bookLib.length;y++){
-                if(Number(bookLib[y].pages)>Number(bookLib[min_index].pages)){
-                    min_index=y;
-                }
-            }
-                temp=bookLib[min_index];
-                bookLib[min_index]=bookLib[x];
-                bookLib[x]=temp;
-         }
-     }else if(direction=='asc'){
-        for(let x=0;x<bookLib.length-1;x++){
-            min_index=x;
-            for(let y=x+1;y<bookLib.length;y++){
-                if(Number(bookLib[y].pages)<Number(bookLib[min_index].pages)){
-                    min_index=y;
-                }
-            }
-                temp=bookLib[min_index];
-                bookLib[min_index]=bookLib[x];
-                bookLib[x]=temp;
-         }
-     }
-     displayBook();
-}
-
-function resortRead(direction){
-    let min_index, temp;
-    if(direction=='decs'){
-       for(let x=0;x<bookLib.length-1;x++){
-           min_index=x;
-           for(let y=x+1;y<bookLib.length;y++){
-               if(bookLib[y].readStat>bookLib[min_index].readStat){
-                   min_index=y;
-               }
-           }
-               temp=bookLib[min_index];
-               bookLib[min_index]=bookLib[x];
-               bookLib[x]=temp;
-        }
-    }else if(direction=='asc'){
-       for(let x=0;x<bookLib.length-1;x++){
-           min_index=x;
-           for(let y=x+1;y<bookLib.length;y++){
-               if(bookLib[y].readStat<bookLib[min_index].readStat){
-                   min_index=y;
-               }
-           }
-               temp=bookLib[min_index];
-               bookLib[min_index]=bookLib[x];
-               bookLib[x]=temp;
-        }
-    }
-    displayBook();
-}
 // Dummy content for design of page--DELETE before final push!
 function dummyContent(){
     const book1= new Book('Hobbit', 'JRR Tolkien', '256', 'not read');
@@ -347,5 +289,5 @@ function massiveDummy(){
 
 }
 
-dummyContent();
-// massiveDummy();
+// dummyContent();
+massiveDummy();
