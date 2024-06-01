@@ -19,33 +19,43 @@ submitBtn.addEventListener('click', submit);
 // for each of the tableHeaders clicked, swaps out the current arrow image with the opposite
 tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
     let content=tableHead.innerText;
+    let direction; //Undeclared variable to determin the direction the algorithm should sort
     const arrow=tableHead.children[0];
+
+    
+    if(arrow.src.match('content/menu-down.svg')){
+        direction='asc';
+    }else if(arrow.src.match('content/menu-up.svg')){
+        direction='decs';
+    }
 
     //Checks each instance of the arrow, and provided we are not on the same cell as the one clicked
     //will reset the table and make all arrows point up before moving onto the actual sorting by cell
     const arrows=document.querySelectorAll('#arrow');
-    arrows.forEach((e)=>{
+    /*arrows.forEach((e)=>{
         if(e.src.match('content/menu-down.svg')&&e.parentNode.innerText!=content){
-            sortTable(0)
+            resortTitle('asc');
             e.src='content/menu-up.svg';
         }
-    });
+    });*/
 
+    
+    
     switch(content){
         case 'Title':
-            sortTable(0)
-            swap(arrow)
+            resortTitle(direction);
+            swap(arrow);
             break;
         case 'Author':
-            sortTable(1)
-            swap(arrow)
+            resortAuthor(direction);
+            swap(arrow);
             break;
         case 'pages':
-            sortTable(2)
-            swap(arrow)
+            resortPages(direction);
+            swap(arrow);
             break;
         case 'read':
-            sortTable(3)
+            resortRead(direction);
             swap(arrow)
             break;
     }
@@ -183,142 +193,65 @@ function readButton(idx,x){
     idx.appendChild(read)
 }
 
-/*-----------------------------------------------------------------------------------------------------------------------------
-//This function is used to sort each method within the table, by clicking the headers. Should I choose to continue to use the  *
-//table in design, this will allow the user to sort books by title, author, pages, or if they've been read or not. The form    *
-//and function of this may change if other design approaches are chosen (IE using display cards), but either way it may be     *
-//an important aspect for feature complete Project: Library.                                                                   *
-//Source for this code is frome W3schools.com: https://www.w3schools.com/howto/howto_js_sort_table.asp                         
-//-----------------------------------------------------------------------------------------------------------------------------*/
 
-function sortTable(n){
-    let rows, switching, i, x, y, shouldSwitch, dir, switchCount=0;
-    let table=document.getElementById('table');
-    switching=true;
-    //sets sorting direction
-    dir='asc';
-    //Loop continues while no switching is done
-    while(switching){
-        //set switching value to false
-        switching=false;
-        rows=table.rows;
-        if(n===0 || n===1){
-            //Loop through every row, except the first, which contains the headers
-            for(i=1;i<(rows.length-1);i++){
-                //There should be no switching
-                shouldSwitch=false;
 
-                //compare the elements you want to compare from one row to the next
-                x=rows[i].getElementsByTagName('TD')[n];
-                y=rows[i+1].getElementsByTagName('TD')[n];
 
-                //Check if the two rows should switch places
-                if(dir=='asc'){
-                    if(x.innerHTML.toLowerCase()>y.innerHTML.toLowerCase()){
-                        shouldSwitch=true;
-                        break;
-                    }
-                }else if(dir=='decs'){
-                    if(x.innerHTML.toLowerCase()<y.innerHTML.toLowerCase()){
-                        shouldSwitch=true;
-                        break;
-                    }
+function resortTitle(direction){
+     let min_index, temp;
+     if(direction=='decs'){
+        for(let x=0;x<bookLib.length-1;x++){
+            min_index=x;
+            for(let y=x+1;y<bookLib.length;y++){
+                if(bookLib[y].title.toLowerCase()>bookLib[min_index].title.toLowerCase()){
+                    min_index=y;
                 }
             }
-            
-            const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
-            switching=values.switching;
-            dir=values.dir;
-            switchCount=values.switchCount;
-            reSortArray();
-        }
-
-        if(n===2){
-            for(i=1;i<rows.length-1;i++){
-                shouldSwitch=false;
-
-                x=rows[i].getElementsByTagName('TD')[n];
-                y=rows[i+1].getElementsByTagName('TD')[n];
-
-                if(dir=='asc'){
-                    if(Number(x.innerHTML)>Number(y.innerHTML)){
-                        shouldSwitch=true;
-                        break;
-                    }
-                }else if(dir=='decs'){
-                    if(Number(x.innerHTML)<Number(y.innerHTML)){
-                        shouldSwitch=true;
-                        break;
-                    }
+                temp=bookLib[min_index];
+                bookLib[min_index]=bookLib[x];
+                bookLib[x]=temp;
+         }
+     }else if(direction=='asc'){
+        for(let x=0;x<bookLib.length-1;x++){
+            min_index=x;
+            for(let y=x+1;y<bookLib.length;y++){
+                if(bookLib[y].title.toLowerCase()<bookLib[min_index].title.toLowerCase()){
+                    min_index=y;
                 }
             }
-            const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
-            switching=values.switching;
-            dir=values.dir;
-            switchCount=values.switchCount;
-            reSortArray();
-        }
-
-        if(n===3){
-            for(i=1;i<(rows.length-1);i++){
-                shouldSwitch=false;
-                
-                x=rows[i].getElementsByTagName('TD')[n].childNodes[0];
-                y=rows[i+1].getElementsByTagName('TD')[n].childNodes[0];
-
-                if(dir=='asc'){
-                    if(x.checked==true && y.checked==false){
-                        shouldSwitch=true;
-                        break;
-                    }
-                }else if(dir=='decs'){
-                    if(x.checked==false && y.checked==true){
-                        shouldSwitch=true;
-                        break;
-                    }
-                }
-            }
-            const values = sorting(rows, shouldSwitch, switching, switchCount, dir,i);
-            switching=values.switching;
-            dir=values.dir;
-            switchCount=values.switchCount;
-            reSortArray();
-        }
-    }
-    reSortArray();
+                temp=bookLib[min_index];
+                bookLib[min_index]=bookLib[x];
+                bookLib[x]=temp;
+         }
+     }
+     displayBook();
 }
 
-//Function to sort the rows
-function sorting(rowsSwitch,shouldSwitch, switching, switchCount, dir='acs',i){
-    // console.log(rowsSwitch[i].parentNode)
-    if(shouldSwitch){
-        rowsSwitch[i].parentNode.insertBefore(rowsSwitch[i+1], rowsSwitch[i]);
-        switching=true;
-        switchCount++;
-        return{dir, switching, switchCount}
-    }else{
-        if(switchCount==0 && dir=='asc'){
-            dir='decs';
-            switching=true;
-            return {dir, switching, switchCount}
-        }
-    }
-    return{dir, switching, switchCount};
-}
-
-function reSortArray(){
-    let rowCheck=document.getElementById('table').rows;
+function resortAuthor(direction){
     let min_index, temp;
-    for(let i=1;i<(rowCheck.length);i++){
-        min_index=i;
-        for(let j=0;j<bookLib.length;j++){
-            if(bookLib[j].title==rowCheck[min_index].getElementsByTagName('TD')[0].innerHTML){
-                temp=bookLib[min_index-1];
-                bookLib[min_index-1]=bookLib[j];
-                bookLib[j]=temp
-            }
+    if(direction=='decs'){
+        for(let x=0;x<bookLib.length-1;x++){
+            min_index=x;
+            for(let y=x+1;y<bookLib.length;y++)
+                if(bookLib[y].author.toLowerCase()>bookLib[min_index].author.toLowerCase())
+                    min_index=y;
+            
+            temp=bookLib[min_index];
+            bookLib[min_index]=bookLib[x];
+            bookLib[x]=temp;
+        }
+    }else if(direction=='asc'){
+        for(let x=0;x<bookLib.length-1;x++){
+            min_index=x;
+            for(let y=x+1;y<bookLib.length;y++)
+                if(bookLib[y].author.toLowerCase()<bookLib[min_index].author.toLowerCase())
+                    min_index=y;
+            
+            temp=bookLib[min_index];
+            bookLib[min_index]=bookLib[x];
+            bookLib[x]=temp;
         }
     }
+    displayBook();
 }
 
 // Dummy content for design of page--DELETE before final push!
