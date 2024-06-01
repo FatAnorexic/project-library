@@ -193,7 +193,10 @@ function readButton(idx,x){
     idx.appendChild(read)
 }
 
-
+//New function that simply resorts the array objects by taking in the direction of the arrow and the specific
+//header that was clicked. The item array declared is for the sole purpose of reducing redundancy, and while
+//it may look a little redundant in the nested for loop, it's a vital step in keeping item and bookLib in sync|
+//organizes better
 
 function resort(direction, flag){
     let min_index, temp, tempItem;
