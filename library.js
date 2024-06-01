@@ -133,6 +133,9 @@ function displayBook(){
     clearBoard();
     for (x of bookLib){
         let row=tbody.insertRow();
+        
+        // create a class for styling
+        row.className='rowStyle';
 
         let cell1=row.insertCell(0)
         let cell2=row.insertCell(1)
