@@ -19,8 +19,9 @@ body {
 
 /* Content for heading of page */
 
-.header {
+header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     background-color: #e8e4e4;
@@ -29,12 +30,26 @@ body {
     z-index: 1;
 }
 
+.header-cont {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
 h1 {
     flex: 0.4 1 auto;
     font-family: var(--Header-font);
 }
+
+.btnCont {
+    /* display: flex; */
+    position: fixed;
+    top: 2rem;
+    right: 1rem;
+}
+
 .bookHead{
-    width: 5%;
+    width: 15%;
 }
 
 .addImage{
@@ -191,16 +206,6 @@ input:checked[type="checkbox"]::before{
     background-color: rgb(255, 255, 255);
     left: 25px;
 }
-
-
-.stickyCont {
-    display: flex;
-    justify-content: end;
-    position: sticky;
-    top: 10px;
-    padding: 10px;
-}
-
 
 
 ::-webkit-scrollbar{
