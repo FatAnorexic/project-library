@@ -137,6 +137,8 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 10px;
     
 }
 #title, #author, #pages {
