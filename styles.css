@@ -148,6 +148,13 @@ form {
     border: 1px solid rgba(0, 0, 0, 0.7);
     padding: 5px;
 }
+.read {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
 
 /* This series of functions are the levers for animating and styling the table itself */
 table{
