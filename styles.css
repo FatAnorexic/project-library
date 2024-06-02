@@ -148,6 +148,7 @@ form {
     border: 1px solid rgba(0, 0, 0, 0.7);
     padding: 5px;
 }
+
 .read {
     display: flex;
     flex-direction: column;
@@ -157,6 +158,27 @@ form {
 .yesNo {
     display: flex;
     gap: 5px;
+}
+
+.formButtons {
+    display: flex;
+    gap: 5rem;
+}
+#btnSubmit, #cancelBtn {
+    border-style: none;
+    border-radius: 1rem;
+    padding: 10px;
+    font-family: var(--fonts);
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.4);
+}
+#cancelBtn {
+    background-color: #7e0808;
+}
+#btnSubmit {
+    background-color: #78aecd;
 }
 
 /* This series of functions are the levers for animating and styling the table itself */
