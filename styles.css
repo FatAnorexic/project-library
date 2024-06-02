@@ -129,8 +129,21 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
+
+.title, .author, .pages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#title,#author,#pages{
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    width: 100%;
+}
+
 /* This series of functions are the levers for animating and styling the table itself */
 table{
     width: 100%;

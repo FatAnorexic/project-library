@@ -26,12 +26,18 @@
         <dialog id="dialog" open>
             <form method="dialog">
                 <h2>Add Book To Library</h2>
-                <label for="title">Title</label>
-                <input type="text" placeholder="Hobbit" required maxlength="100" id="title"/>
-                <label for="author">Author</label>
-                <input type="text" placeholder="JRR Tolkien"  required maxlength="100" id="author"/>
-                <label for="pages">Number of Pages</label>
-                <input type="number" id="pages" required min="1"/>
+                <div class="title">
+                    <label for="title">Title</label>
+                    <input type="text" placeholder="Hobbit" required maxlength="100" id="title"/>
+                </div>
+                <div class="author">
+                    <label for="author">Author</label>
+                    <input type="text" placeholder="JRR Tolkien"  required maxlength="100" id="author"/>
+                </div>
+                <div class="pages">
+                    <label for="pages">Number of Pages</label>
+                    <input type="number" id="pages" required min="1"/>
+                </div>
                 <div class="read">
                     <label for="isRead">Has this book been read?</label>
                     <input type="checkbox" id="isRead">
