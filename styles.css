@@ -123,6 +123,7 @@ table{
     width: 100%;
     table-layout: fixed;
     font-family: var(--conent-font);
+    border-collapse: collapse;
 }
 .tbl-header{
     vertical-align: bottom;
@@ -136,9 +137,9 @@ table{
     border: 1px solid rgba(16, 16, 16, 0.3);
 }
 
-.rowStyle:hover{
-    background-color: #00000025;
-}
+/* .rowStyle:hover{ */
+    /* background-color: #00000025; */
+/* } */
 
 td{
     padding:10px;
@@ -148,7 +149,12 @@ td{
     border-bottom: 1px solid rgba(48, 47, 47, 0.3);
     vertical-align: middle;
 }
-
+tbody tr{
+    transition: background-color 0.5s ease;
+}
+tbody tr:hover{
+    background: #000f1342;
+}
 .removeStyle {
     /* display: flex; */
     /* align-items: center; */
