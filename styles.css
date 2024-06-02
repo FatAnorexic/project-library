@@ -181,6 +181,12 @@ form {
     background-color: #78aecd;
 }
 
+/* Animate buttons when pressed */
+#btnSubmit:active, #cancelBtn:active{
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.7);
+    transform: translateY(4px);
+}
+
 /* This series of functions are the levers for animating and styling the table itself */
 table{
     width: 100%;
