@@ -236,7 +236,10 @@ tbody tr:hover{
     background: #f19609;
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.4);
 }
-
+.removeStyle:active{
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.7);
+    transform: translateY(3px);
+}
 /* table header styling */
 .tableHeader{
     display: flex;
