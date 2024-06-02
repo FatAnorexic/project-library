@@ -137,10 +137,6 @@ table{
     border: 1px solid rgba(16, 16, 16, 0.3);
 }
 
-/* .rowStyle:hover{ */
-    /* background-color: #00000025; */
-/* } */
-
 td{
     padding:10px;
     text-align: center;
@@ -150,7 +146,7 @@ td{
     vertical-align: middle;
 }
 tbody tr{
-    transition: background-color 0.5s ease;
+    transition: background-color 0.1s ease;
 }
 tbody tr:hover{
     background: #000f1342;
