@@ -154,7 +154,10 @@ form {
     align-items: center;
     gap: 10px;
 }
-
+.yesNo {
+    display: flex;
+    gap: 5px;
+}
 
 /* This series of functions are the levers for animating and styling the table itself */
 table{
