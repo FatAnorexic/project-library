@@ -4,6 +4,7 @@ Book-open-varient: Google (https://pictogrammers.com/library/mdi/icon/book-open-
 <br>plus: Google (https://pictogrammers.com/library/mdi/icon/plus/)</br>
 <br>arrow-up: Google (https://pictogrammers.com/library/mdi/icon/arrow-up/)</br>
 <br>arrow-down: Google (https://pictogrammers.com/library/mdi/icon/arrow-down/)</br>
+<br>Github Icon: WikiMedia(https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg)</br>
 
 # Fonts
 Merriweather, Poppins, Roboto, Ubuntu: Google Fonts (https://fonts.google.com/)
