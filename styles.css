@@ -121,12 +121,16 @@ dialog {
     z-index: 3;
     background: -webkit-linear-gradient(left, #f4ece7, #f6dac5);
 }
-form{
+form {
     font-family: var(--Header-font);
     font-weight: 600;
     font-size: medium;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-
 /* This series of functions are the levers for animating and styling the table itself */
 table{
     width: 100%;
