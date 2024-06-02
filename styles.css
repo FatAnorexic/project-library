@@ -10,8 +10,6 @@
 body {
     display: grid;
     grid-template-rows: 1fr min-content 1fr;
-    /* justify-content: center; */
-    /* gap: 1rem; */
     margin:0;
     padding:0;
     font-family: var(--fonts);
@@ -42,7 +40,6 @@ h1 {
 }
 
 .btnCont {
-    /* display: flex; */
     position: fixed;
     top: 2rem;
     right: 1rem;
@@ -57,10 +54,10 @@ h1 {
 }
 
 main {
-    /* temporary */
     background: -webkit-linear-gradient(left, #f4ece7, #f6dac5);
     padding-top: 16px;
 }
+
 /* Styles content in the main container */
 
 /* Dialog animating and key frames for dialog */
@@ -119,6 +116,7 @@ dialog::backdrop{
 
 /* dialog, form, and table styling */
 
+/* This series of functions are the levers for animating and styling the table itself */
 table{
     width: 100%;
     table-layout: fixed;
@@ -145,16 +143,17 @@ td{
     border-bottom: 1px solid rgba(48, 47, 47, 0.3);
     vertical-align: middle;
 }
+
+/* shades the table row, in which the user mouse is hovering over */
 tbody tr{
     transition: background-color 0.1s ease;
 }
 tbody tr:hover{
     background: #000f1342;
 }
+
+/* Button styling for remove buttons */
 .removeStyle {
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
     margin: 1rem 0;
     padding: 6px;
     border-radius: 1rem;
@@ -165,9 +164,9 @@ tbody tr:hover{
     color: #ffffff;
     background: #f19609;
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.4);
-    /* opacity: 80%; */
 }
 
+/* table header styling */
 .tableHeader{
     display: flex;
     justify-content: center;
@@ -214,7 +213,7 @@ input:checked[type="checkbox"]::before{
     left: 25px;
 }
 
-
+/* custom scroll bar for table */
 ::-webkit-scrollbar{
     width:10px;
 }
