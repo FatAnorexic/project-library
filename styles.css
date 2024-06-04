@@ -321,7 +321,10 @@ footer {
 
 a{
     font-family: var(--fonts);
+    text-decoration: none;
 }
+
+
 .gitImg:hover{
     transition: 0.7s ease;
     transform: rotate(1.0turn);
