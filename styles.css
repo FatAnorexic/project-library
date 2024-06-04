@@ -301,7 +301,12 @@ input:checked[type="checkbox"]::before{
 }
 
 /* Footer styling */
-
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
 .gitImg{
     width: 5rem;
 }
