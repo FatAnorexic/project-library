@@ -324,7 +324,14 @@ a{
     text-decoration: none;
 }
 
-
+.sourceImg:hover{
+    transition: 0.3s ease-in;
+    transform: scale(1.3);
+}
+.resourceImg:hover{
+    transition: 1.0s ease-out;
+    transform: translate(0px, -10px);
+}
 .gitImg:hover{
     transition: 0.7s ease;
     transform: rotate(1.0turn);
