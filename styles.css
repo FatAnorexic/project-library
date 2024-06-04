@@ -318,6 +318,10 @@ footer {
 .gitImg, .resourceImg, .sourceImg{
     width: 5rem;
 }
+
+a{
+    font-family: var(--fonts);
+}
 .gitImg:hover{
     transition: 0.7s ease;
     transform: rotate(1.0turn);
