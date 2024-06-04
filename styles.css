@@ -307,6 +307,14 @@ footer {
     justify-content: center;
     gap: 2rem;
 }
+
+.sourceCont, .odinResouce, .gitHubLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .gitImg{
     width: 5rem;
 }
