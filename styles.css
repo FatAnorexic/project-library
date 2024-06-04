@@ -305,3 +305,7 @@ input:checked[type="checkbox"]::before{
 .gitImg{
     width: 5rem;
 }
+.gitImg:hover{
+    transition: 0.7s ease;
+    transform: rotate(1.0turn);
+}
