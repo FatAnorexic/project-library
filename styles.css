@@ -53,7 +53,7 @@ h1 {
     width: 3rem;
 }
 
-main {
+main, footer {
     background: -webkit-linear-gradient(left, #f4ece7, #f6dac5);
     padding-top: 16px;
 }
