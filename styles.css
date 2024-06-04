@@ -306,6 +306,8 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
 }
 
 .sourceCont, .odinResource, .gitHubLink {
