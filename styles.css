@@ -321,6 +321,12 @@ footer {
 
 a{
     font-family: var(--fonts);
+    font-size: medium;
+    font-weight: 600;
+    color:black;
+    text-decoration: none;
+}
+a:visited{
     text-decoration: none;
 }
 
