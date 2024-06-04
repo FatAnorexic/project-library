@@ -315,7 +315,7 @@ footer {
     justify-content: center;
 }
 
-.gitImg{
+.gitImg, .resourceImg, .sourceImg{
     width: 5rem;
 }
 .gitImg:hover{
