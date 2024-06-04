@@ -308,7 +308,7 @@ footer {
     gap: 2rem;
 }
 
-.sourceCont, .odinResouce, .gitHubLink {
+.sourceCont, .odinResource, .gitHubLink {
     display: flex;
     flex-direction: column;
     align-items: center;
