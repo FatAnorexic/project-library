@@ -302,3 +302,6 @@ input:checked[type="checkbox"]::before{
 
 /* Footer styling */
 
+.gitImg{
+    width: 5rem;
+}
