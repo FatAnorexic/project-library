@@ -65,12 +65,14 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
 const bookLib=[];
 
 
-//Constructor for book
-function Book(title, author, pages, readStat){
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.readStat=readStat;
+//Book class
+class Book{
+    constructor(title, author, pages, readStat){
+        this.title=title;
+        this.author=author;
+        this.pages=pages;
+        this.readStat=readStat;
+    }
 }
 
 // Function to swap directional arrows of table heads
