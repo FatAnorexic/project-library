@@ -73,10 +73,6 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
             break;
     }
 }));
-
-//An empty array to store all book values
-const bookLib=[];
-
 // Function to swap directional arrows of table heads
 function swap(arrow){
     if(arrow.src.match('content/menu-up.svg')){
@@ -85,6 +81,9 @@ function swap(arrow){
         arrow.src='content/menu-up.svg';
     }
 }
+
+//An empty array to store all book values
+const bookLib=[];
 
 //Takes form information and creates object from it, then pushes object to addBook function
 function submit(event){
