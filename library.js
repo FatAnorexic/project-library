@@ -267,14 +267,14 @@ function resort(direction, flag){
 }
 
 // Dummy content for design of page--DELETE before final push!
-function dummyContent(){
+const dummy=(function dummyContent(){
     const book1= new Book('Hobbit', 'JRR Tolkien', '320', 'not read');
     const book2= new Book('Leviathan Wakes', 'James S.A. Corey', '592', 'read');
     const book3= new Book(`To Kill a Mocking Bird`, 'Harper Lee', '281','read');
     addBook(book1);
     addBook(book2);
     addBook(book3);
-}
+})(0);
 // Legacy Code for future maintence and testing
 /*
 function massiveDummy(){
@@ -301,5 +301,4 @@ function massiveDummy(){
 
 }*/
 
-dummyContent();
 // massiveDummy();
