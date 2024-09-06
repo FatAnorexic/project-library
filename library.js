@@ -67,7 +67,9 @@ const bookLib=[];
 
 //Book class
 class Book{
-    constructor(title, author, pages, readStat){
+    constructor(
+        title='Unknown', author='Unknown', pages=1, readStat=false
+    ){
         this.title=title;
         this.author=author;
         this.pages=pages;
