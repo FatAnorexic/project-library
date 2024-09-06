@@ -1,4 +1,17 @@
 
+
+//Book class
+class Book{
+    constructor(
+        title='Unknown', author='Unknown', pages=1, readStat=false
+    ){
+        this.title=title;
+        this.author=author;
+        this.pages=pages;
+        this.readStat=readStat;
+    }
+}
+
 //select the table for inserting content
 const tbody=document.querySelector('tbody')
 
@@ -63,19 +76,6 @@ tableHeads.forEach(tableHead => tableHead.addEventListener('click', ()=>{
 
 //An empty array to store all book values
 const bookLib=[];
-
-
-//Book class
-class Book{
-    constructor(
-        title='Unknown', author='Unknown', pages=1, readStat=false
-    ){
-        this.title=title;
-        this.author=author;
-        this.pages=pages;
-        this.readStat=readStat;
-    }
-}
 
 // Function to swap directional arrows of table heads
 function swap(arrow){
